@@ -1,7 +1,7 @@
 ---
 title: 'PSY6210: Glossary'
 author: "Nemanja Vaci"
-date: "06/02/2022"
+date: "03/03/2022"
 output: 
   html_document:
     toc: true
@@ -118,3 +118,62 @@ ggplot()+geom_linerange(data=Babies,aes(x=Age, ymin=lm1,ymax=lm0,colour=SSmodel)
 ```{r}
 (sum(Babies$SSmodel^2)/1)/(sum(Babies$SSresid^2)/98)
 ```
+
+### Structural equation modelling 
+
+Modelling framework used to test relationship between variables. The SEM model is composed of two parts: measurement model and structural model. It is often used (should be used) to test and evaluate multivariate causal relationships. Check more here: [link](https://ecologicalprocesses.springeropen.com/articles/10.1186/s13717-016-0063-3#:~:text=Structural%20equation%20modeling%20(SEM)%20is,on%20pre%2Dassumed%20causal%20relationships.)
+
+### Total number of parameters
+Number of free parameters that we can estimate using specific number of elements (variables):<br/>
+$\frac{variables*(variables+1)}{2}$
+
+### Number of parameters estimated in the proposed model:
+It depends on the underlying model - always check the degrees of freedom and compare them with the drawing of the model. For example:<br/>
+![Model Parameters](ModelParameters.png)
+
+### Model identification
+Model coefficients can only be estimated if the model has: <br/>
+1. The same number of total and estimated parameters (just-identified) <br/>
+2. More total than estimated parameters (over-identified model) <br/>
+Alternatively, it will under-identified. 
+
+### Fit Indices of SEM model
+
+![Fit Indices](fitInd.png)
+
+### Confirmatory Factor Analysis (CFA)
+
+Model that investigates latent space of measures (measurement model). In comparison to the exploratory factor analysis, CFA is theory driven approach. We have strong assumptions and expectations how many factors are there and how are individual measures loading onto these latent factors. <br/>
+$y_1=\tau_1+\lambda_1*\eta+\epsilon_1$<br/><br/>
+
+$\tau$ - the item intercepts or means<br/>
+$\lambda$ - factor loadings - regression coefficients  <br/>
+$\epsilon$ - error variances and covariances  <br/>
+$\eta$ - the latent predictor of the items<br/>
+$\psi$ - factor variances and covariances  <br/>
+
+### Type of factors: reflective and formative
+
+A reflective measurement model happens when the indicators of a construct are considered to be caused by that construct. A formative measurement model happens when the measured variables are considered to be the cause of the latent variable.
+
+![Reflective vs Formative](RefVsForm.png)
+
+### Defining the scale of latent variables
+We have different options, most common ones are:<br/><br/> 
+1. Marker variable: single factor loading constraint to 1 <br/><br/>
+2. Standardized latent variables: setting variance of variable to 1  (Z-score) <br/><br/> 
+3. Effects-coding: constraints that all of the loadings to one LV average 1.0 or that their sum is equal to number of indicators
+
+### Full SEM model
+Combination between measurement and structural model: 
+
+![Home advantage](HA.png)
+
+
+### Measurement invariance
+
+Measurement invariance or measurement equivalence is a statistical property of measurement that indicates that the same construct is being measured across some specified groups: <br/><br/> 
+1. Configural invarience: Model fitted for each group separately <br/><br/> 
+2. Metric invariance: restriction of the factor loadings, but intercepts are allowed to vary <br/><br/> 
+3. Scalar invariance: restriction of the both, factor loadings and intercepts <br/><br/> 
+4. Strict invariance: restriction on factor loadings, intercepts and residual variances
